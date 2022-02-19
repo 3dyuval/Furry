@@ -1,5 +1,6 @@
 import { Fetch } from "./classes.js"
-
+import Snackbar from "./snackbar.js"
+const snackbar = new Snackbar()
 const factElements = document.querySelectorAll(".fact")
 const factButtons = document.querySelectorAll(".fact button")
 const catFact = new Fetch("https://catfact.ninja/")

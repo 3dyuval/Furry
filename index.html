@@ -18,7 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
 
     <script defer src="./js/index.js" type="module"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/snackbar.css">
     <div class="overlay-focus"></div>
     <header>
         <nav>
@@ -138,12 +139,14 @@
 </section>
 <footer>
     <div class="join-the-list">
-        <h4>join the list</h4>
+
         <div class="container">
-            <form action="submit">
-                <input type="email" name="your-email" id="your-email" placeholder="your@email">
+            <form action="submit" id="footer-form">
+                <h4>join the list</h4>
+                <input type="email" name="your-email" value="" id="your-email" placeholder="your@email" >
                 <button type="submit">join!</button>
             </form>
+            <div class="success" style="display: none"><h4>Meow you!</h4></div>
         </div>
     </div>
     <div class="social-links">

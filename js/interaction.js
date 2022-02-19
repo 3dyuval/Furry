@@ -1,4 +1,6 @@
+
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
+
 
 const meowMeContainer = document.querySelector(".meow-me")
 const meowMeForm = document.querySelector(".meow-me form")
