@@ -1,24 +1,27 @@
-
+import Snackbar from './snackbar.js'
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 
 
+const snack = new Snackbar()
 const meowMeContainer = document.querySelector(".meow-me")
 const meowMeForm = document.querySelector(".meow-me form")
 const meowMeSubmit = document.querySelector(".meow-me button")
-const allInputs = document.querySelectorAll(".focusable")
+const meowMeFormInputs = meowMeForm.querySelectorAll('input:not([type="hidden"])')
 const overlayFocus = document.querySelector(".overlay-focus")
 
 const meowMeTl = gsap.timeline()
 
-const meowMeFormSubmit = event => {
-  event.preventDefault()
-  console.log("submitted")
-  meowMeForm.removeEventListener("submit", meowMeFormSubmit)
-  meowMeForm.addEventListener("submit", event => {
-    event.preventDefault()
-  })
-}
-meowMeForm.addEventListener("submit", meowMeFormSubmit)
+
+meowMeFormInputs.forEach(input => {
+    input.addEventListener("change", () => {
+      if (Array.from(meowMeFormInputs)
+      .some(input => input.hasAttribute("required") && !input.validity.valid)) {
+        meowMeSubmit.disabled = true
+      } else {
+        meowMeSubmit.disabled = false
+      }
+    })
+})
 
 const overlayOnFocus = mode => {
   meowMeContainer.classList[mode]("focused")
@@ -57,9 +60,3 @@ meowMeContainer.addEventListener(
     once: true,
   }
 )
-
-// TODO form validation
-
-// const nameValidated = false;
-// const emailValidated = false;
-// const messageValidated = false;
